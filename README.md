@@ -41,5 +41,5 @@ npm run test
 ## Development
 
 ```
-npm run dev
+npm run startdev
 ```
