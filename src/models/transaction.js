@@ -1,27 +1,12 @@
-const Joi = require('joi');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const schema = Joi.object({
-    username: Joi.string()
-        .alphanum()
-        .min(3)
-        .max(30)
-        .required(),
+const transaction = new Schema({
+    '_id': { 'type': String, 'required': false },
+    'type': { 'type': String, 'required': true },
+    'amount': { 'type': Number, 'required': true },
+    'effectiveDate': { 'type': Date, 'required': false, 'default': Date.now }
+  
+});
 
-    password: Joi.string()
-        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-
-    repeat_password: Joi.ref('password'),
-
-    access_token: [
-        Joi.string(),
-        Joi.number()
-    ],
-
-    birth_year: Joi.number()
-        .integer()
-        .min(1900)
-        .max(2013),
-
-    email: Joi.string()
-        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
-})
+module.exports = mongoose.model('Transaction', transaction);
