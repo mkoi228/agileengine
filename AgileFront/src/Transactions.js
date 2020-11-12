@@ -20,38 +20,40 @@ class Transaction extends Component {
       });
   }
 
-   renderTableData() {
-      return this.state.table.map((transaction, index) => {
-         const {_id, type, amount, effectiveDate } = transaction
-         return (
-            <tr key={_id}>
-               <td>{type}</td>
-               <td>{amount}</td>
-               <td>{effectiveDate}</td>
-            </tr>
-         )
-      })
-   }
-
-   renderTableHeader() {
+  renderTableHeader() {
+      if (!this.state.table.length) { return null }
       let header = Object.keys(this.state.table[0])
-      console.log(header)
       return header.map((key, index) => {
          return <th key={index}>{key.toUpperCase()}</th>
       })
    }
 
+   renderTableData() {
+      return this.state.table.map((transaction, index) => {
+         const {_id, type, amount, effectiveDate, __v } = transaction
+         return (
+            <tr key={_id}>
+               <td>{_id}</td>
+               <td>{type}</td>
+               <td>{amount}</td>
+               <td>{effectiveDate}</td>
+               <td>{__v}</td>
+            </tr>
+         )
+      })
+   }
+
    render() {
-      console.log(this.header)
+      console.log(this.state.table)
       return (
          <div>
-            {/* <h1 id='title'>Transactions History</h1>
+            <h1 id='title'>Transactions History</h1>
             <table id='students'>
                <tbody>
                   <tr>{this.renderTableHeader()}</tr>
                   {this.renderTableData()}
                </tbody>
-            </table> */}
+            </table>
          </div>
       )
    }
