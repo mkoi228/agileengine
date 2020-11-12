@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './table.css';
+import './transaction.css';
 // eslint-disable-next-line
 const axios = require('axios').default;
 
