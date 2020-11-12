@@ -19,7 +19,7 @@ let user = ({
 
 async function getTransactionsHistory(req, res, next){
     try {
-        res.status('200').json(transactionsHistory);
+        res.status('200').send(transactionsHistory);
     }
     catch (err) {
         res.status(400).json('Invalid status value.');
