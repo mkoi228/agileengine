@@ -1,8 +1,18 @@
 # Agile Engine restAPI 
 
-## Initialization
+## INITIALIZATION
 
 How to run back and front services
+
+### MongoDB
+
+You need to create a database in mongo called "agileengine"
+
+Then you need to run mongo locally: 
+
+$ mongod
+
+Your monbodb should be running in "mongodb://localhost:27017/agileengine"
 
 ### Backend
 
@@ -16,7 +26,7 @@ Change directory into ./AgileFront and run $ npm start
 
 You will found the Main Page under localhost:3000
 
-## Endpoints
+## ENDPOINTS
 
 Main Page
 http://localhost:4242/api/gettransactionshistory
