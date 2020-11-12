@@ -31,18 +31,20 @@ class Transaction extends Component {
    renderTableData() {
       return this.state.table.map((transaction, index) => {
          const {_id, type, amount, effectiveDate} = transaction
+         let tdcolor = 'nothing';
+         transaction.type === 'credit' ? tdcolor = 'green' : tdcolor = 'red';
          return (
             <tr key={_id}>
-               <td>{type}</td>
-               <td>{amount}</td>
-               <td>{effectiveDate}</td>
+               <td id={tdcolor}>{type}</td>
+               <td id={tdcolor}>{amount}</td>
+               <td id={tdcolor}>{effectiveDate}</td>
             </tr>
          )
       })
    }
 
    render() {
-      console.log(this.state.table)
+      
       return (
          <div>
             <h1 id='title'>Transactions History</h1>
