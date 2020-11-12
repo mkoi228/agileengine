@@ -6,7 +6,7 @@ How to run back and front services
 
 ### Backend
 
-Change directory into ./AgileEnd and run $ npm run startdev
+Change directory into ./AgileBack and run $ npm run startdev
 
 Endpoints will be working on localhost:4242
 
